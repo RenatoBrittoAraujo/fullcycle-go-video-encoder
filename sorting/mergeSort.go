@@ -1,4 +1,4 @@
-package main
+package sorting
 
 // Sorts array
 func MergeSort(arr *[]int) {

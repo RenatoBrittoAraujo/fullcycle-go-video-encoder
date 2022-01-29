@@ -3,11 +3,15 @@ package main
 import (
 	"fmt"
 
-	"github.com/renatobrittoaraujo/fullcycle-go-video-encoder/sorting"
+	"github.com/renatobrittoaraujo/fullcycle-go-video-encoder/async"
 )
 
 func main() {
-	arr := []int{123, 12, 312, 321, 541, 24}
-	sorting.MergeSort(&arr)
-	fmt.Println(arr)
+	a := make(chan async.JobRet)
+	b := make(chan async.JobRet)
+	go async.LongRoutine("12708317289032178903", a)
+	go async.LongRoutine("123790-1738921381209", b)
+	var1 := <-a
+	var2 := <-b
+	fmt.Println("Got", var1, var2)
 }
